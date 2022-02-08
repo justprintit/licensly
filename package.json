@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev ./web/client",
-    "build": "next build ./web/client",
+    "build": "next build ./web/client && next export ./web/client",
     "lint": "next lint ./web/client"
   },
   "workspaces": [

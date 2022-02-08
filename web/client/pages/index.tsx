@@ -3,6 +3,10 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
+const imageLoaderPropObj = ({ src, width, quality }: Record<string, any>): string => {
+  return `${src}?w=${width}&q=${quality || 75}`
+}
+
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
@@ -61,7 +65,7 @@ const Home: NextPage = () => {
         >
           Powered by{' '}
           <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+            <Image loader={imageLoaderPropObj} src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
       </footer>
