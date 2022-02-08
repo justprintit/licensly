@@ -2,7 +2,7 @@
   "name": "licensly",
   "private": true,
   "scripts": {
-    "dev": "next build && next dev ./web/client",
+    "dev": "next build ./web/client && next dev ./web/client",
     "build": "next build ./web/client && next export ./web/client",
     "lint": "next lint ./web/client"
   },
