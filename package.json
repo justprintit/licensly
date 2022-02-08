@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next dev ./web/client",
     "build": "next build ./web/client",
-    "lint": "next lint ./web/client"
+    "lint": "next lint ./web/client",
+    "build_and_export_static": "next build ./web/client && next export ./web/client"
   },
   "workspaces": [
     "web/client"
