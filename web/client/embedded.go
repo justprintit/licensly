@@ -5,7 +5,7 @@ import (
 	"io/fs"
 )
 
-//go:embed out/*
+//go:embed out
 var embedded embed.FS
 
 func GetFilesystem() fs.FS {
