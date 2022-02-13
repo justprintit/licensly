@@ -4,6 +4,10 @@ import (
 	"go.sancus.dev/config"
 	"go.sancus.dev/config/flags"
 	"go.sancus.dev/config/flags/cobra"
+
+	"go.sancus.dev/web/router"
+
+	"github.com/justprintit/licensly/web/licensly"
 )
 
 // Command
@@ -17,9 +21,14 @@ var serveCmd = &cobra.Command{
 		return err
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
+		// licensly app
+		app := licensly.NewApp()
+
 		// router
+		r := router.NewRouter(app.ErrorHandler)
+
 		// serve
-		return cfg.Server.ListenAndServe(nil)
+		return cfg.Server.ListenAndServe(r)
 	},
 }
 
