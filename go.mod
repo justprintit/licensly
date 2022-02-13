@@ -3,6 +3,7 @@ module github.com/justprintit/licensly
 go 1.17
 
 require (
+	github.com/cloudflare/tableflip v1.2.2
 	github.com/spf13/cobra v1.3.0
 	go.sancus.dev/config v0.9.0
 )

@@ -5,9 +5,13 @@ import (
 
 	"go.sancus.dev/config"
 	"go.sancus.dev/config/yaml"
+
+	"github.com/justprintit/licensly/web/server"
 )
 
-type Config struct{}
+type Config struct {
+	Server server.ServerConfig
+}
 
 func (cfg *Config) ReadInFile(filename string) error {
 	return yaml.LoadFile(filename, cfg)
