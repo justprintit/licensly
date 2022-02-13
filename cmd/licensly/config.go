@@ -3,9 +3,8 @@ package main
 import (
 	"io"
 
+	"go.sancus.dev/config"
 	"go.sancus.dev/config/yaml"
-
-	"github.com/justprintit/licensly/config"
 )
 
 type Config struct{}
