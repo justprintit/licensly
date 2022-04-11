@@ -1,17 +1,11 @@
 package client
 
+//go:generate go run go.sancus.dev/web/cmd/embed -o out.go -p client -n embedded out
+
 import (
-	"embed"
 	"io/fs"
 )
 
-//go:embed out
-var embedded embed.FS
-
-func GetFilesystem() fs.FS {
-	fsys, err := fs.Sub(embedded, "out")
-	if err != nil {
-		panic(err)
-	}
-	return fsys
+func Embedded() (fs.FS, error) {
+	return fs.Sub(&embedded, "out")
 }
