@@ -16,6 +16,8 @@ require (
 	github.com/felixge/httpsnoop v1.0.2 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
-	go.sancus.dev/core v0.16.0 // indirect
+	go.sancus.dev/core v0.17.0 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
 )
+
+replace go.sancus.dev/web => ../../../go.sancus.dev/web
