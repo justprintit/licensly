@@ -5,6 +5,7 @@ import (
 	"go.sancus.dev/config/flags"
 	"go.sancus.dev/config/flags/cobra"
 
+	"go.sancus.dev/web/middleware"
 	"go.sancus.dev/web/router"
 
 	"github.com/justprintit/licensly/web/licensly"
@@ -26,6 +27,7 @@ var serveCmd = &cobra.Command{
 
 		// router
 		r := router.NewRouter(app.ErrorHandler)
+		r.Use(middleware.Recoverer(app.ErrorHandler))
 
 		// serve
 		return cfg.Server.ListenAndServe(r)
