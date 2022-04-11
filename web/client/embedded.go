@@ -4,8 +4,26 @@ package client
 
 import (
 	"io/fs"
+	"log"
+
+	"go.sancus.dev/web"
+	"go.sancus.dev/web/embed"
 )
 
 func Embedded() (fs.FS, error) {
 	return fs.Sub(&embedded, "out")
+}
+
+func Middleware() web.MiddlewareHandlerFunc {
+	fsys, err := Embedded()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	m := embed.EmbedFS{
+		FS:    fsys,
+		Index: "index.html",
+	}
+
+	return m.Middleware
 }

@@ -8,6 +8,7 @@ import (
 	"go.sancus.dev/web/middleware"
 	"go.sancus.dev/web/router"
 
+	"github.com/justprintit/licensly/web/client"
 	"github.com/justprintit/licensly/web/licensly"
 )
 
@@ -28,6 +29,7 @@ var serveCmd = &cobra.Command{
 		// router
 		r := router.NewRouter(app.ErrorHandler)
 		r.Use(middleware.Recoverer(app.ErrorHandler))
+		r.Use(client.Middleware())
 
 		// serve
 		return cfg.Server.ListenAndServe(r)
